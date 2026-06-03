@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark background -->
+  <rect width="100" height="100" rx="10" fill="#1C1917"/>
+  <!-- Amber underline + dot, echoing the logo's signature element -->
+  <path d="M14,72 L72,72 C83,72 88,72 88,60" fill="none" stroke="#B45309" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="88" cy="60" r="7.5" fill="#B45309"/>
+</svg>
