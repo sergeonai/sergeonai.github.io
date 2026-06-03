@@ -5,36 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="canonical" href="{{ page.url | prepend: site.url }}">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
   {% feed_meta %}
 </head>
 <body>
-  <div class="wrap">
+  <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰ Menu</button>
 
-    <nav>
-      <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}">Writing</a></li>
-        <li><a href="{{ '/about' | relative_url }}">About</a></li>
-        <li><a href="{{ '/now' | relative_url }}">Now</a></li>
-      </ul>
-    </nav>
+  <div class="site">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <a href="{{ '/' | relative_url }}">The Compounding Mind</a>
+      </div>
 
-    {{ content }}
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+          </li>
+          <li>
+            <details {% if page.url contains '/writing' or page.url contains '/personal-finance' or page.url contains '/investing' or page.url contains '/productivity' %}open{% endif %}>
+              <summary>Writing</summary>
+              <ul class="sub-nav">
+                <li><a href="{{ '/personal-finance/' | relative_url }}" {% if page.url contains 'personal-finance' %}class="active"{% endif %}>Personal Finance</a></li>
+                <li><a href="{{ '/investing/' | relative_url }}" {% if page.url contains 'investing' %}class="active"{% endif %}>Investing</a></li>
+                <li><a href="{{ '/productivity/' | relative_url }}" {% if page.url contains 'productivity' %}class="active"{% endif %}>Productivity</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a href="{{ '/library/' | relative_url }}" {% if page.url contains '/library' %}class="active"{% endif %}>Library</a>
+          </li>
+          <li>
+            <a href="{{ '/newsletter/' | relative_url }}" {% if page.url contains '/newsletter' %}class="active"{% endif %}>Newsletter</a>
+          </li>
+          <li>
+            <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About Me</a>
+          </li>
+        </ul>
+      </nav>
 
-    <footer>
-      {{ site.title }} · {{ site.tagline }} · {{ site.description }}
-    </footer>
+      <div class="sidebar-footer">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.author }}
+      </div>
+    </aside>
 
+    <main class="main">
+      {{ content }}
+    </main>
   </div>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      const sidebar = document.querySelector('.sidebar');
+      const toggle = document.querySelector('.mobile-toggle');
+      if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
