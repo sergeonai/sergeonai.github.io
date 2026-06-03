@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+{% assign tag_classes = "finance:tag-finance,productivity:tag-productivity,notes:tag-notes" | split: "," %}
+
+<article>
+  <header class="page-header">
+    <div class="section-label">
+      {% for tag in page.tags %}
+        {% assign tag_lower = tag | downcase %}
+        {% assign tag_class = "tag-default" %}
+        {% if tag_lower == "finance" %}{% assign tag_class = "tag-finance" %}{% endif %}
+        {% if tag_lower == "productivity" %}{% assign tag_class = "tag-productivity" %}{% endif %}
+        {% if tag_lower == "notes" %}{% assign tag_class = "tag-notes" %}{% endif %}
+        <span class="tag {{ tag_class }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <h1>{{ page.title }}</h1>
+    <div class="post-byline">
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      <span>·</span>
+      <span>{{ site.author }}</span>
+      {% assign words = content | number_of_words %}
+      {% assign minutes = words | divided_by: 200 %}
+      {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+      <span>·</span>
+      <span>{{ minutes }} min read</span>
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="prev">← {{ page.previous.title }}</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+    {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="next">{{ page.next.title }} →</a>
+    {% endif %}
+  </nav>
+</article>
