@@ -1,0 +1,29 @@
+---
+layout: default
+title: Writing
+permalink: /writing/
+---
+
+<div class="page-header">
+  <div class="page-label">Writing</div>
+  <h1>All Posts</h1>
+</div>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <div class="post-info">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+        {% for tag in post.tags %}
+          {% assign tl = tag | downcase | replace: ' ', '-' %}
+          {% assign tc = "tag-notes" %}
+          {% if tl == "personal-finance" %}{% assign tc = "tag-finance" %}{% endif %}
+          {% if tl == "investing" %}{% assign tc = "tag-investing" %}{% endif %}
+          {% if tl == "productivity" %}{% assign tc = "tag-productivity" %}{% endif %}
+          <span class="tag {{ tc }}">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
