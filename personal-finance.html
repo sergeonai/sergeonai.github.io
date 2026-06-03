@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Personal Finance"
+permalink: /personal-finance/
+---
+
+<div class="page-header">
+  <div class="page-label">Writing</div>
+  <h1>Personal Finance</h1>
+</div>
+
+<ul class="post-list">
+  {% assign tag_filter = "Personal Finance" %}
+  {% for post in site.posts %}
+    {% if post.tags contains tag_filter %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <div class="post-info">
+          <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+          {% if post.excerpt %}<div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>{% endif %}
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
