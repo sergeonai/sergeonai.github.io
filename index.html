@@ -4,9 +4,10 @@ title: Home
 ---
 
 <div class="home-intro">
-  <p>Hey, I'm Srdan — working in finance, thinking about AI, and writing down what I learn.</p>
-  <p>This is where I put ideas worth more than a tweet but less than a book. Posts on personal finance, investing, and how AI is changing the way we work. Occasionally something off-topic.</p>
-  <p>Based in France. <a href="/about/">More about me →</a></p>
+  <p>Hey, I'm Srđan, or Serge, as they call me here in France. An engineer with a soft spot for personal finance and a mild obsession with all things artificial intelligence. I write down what I learn, so I don't forget it, and in case it's useful to someone else too.</p>
+  <p>This will be a place for ideas worth more than a tweet, but less than a book. Thoughts on finance, investing, and the occasional rabbit hole I probably shouldn't have gone down.</p>
+  <p>Expect the odd off-topic detour. That's a promise, not a warning.</p>
+  <p>A citizen of the world, happily living in France.</p>
 </div>
 
 <div class="section-label">Latest Writing</div>
@@ -16,11 +17,4 @@ title: Home
     <li>
       <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
       <div class="post-info">
-        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
-        {% if post.excerpt %}
-          <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-        {% endif %}
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+        <a href="{{ post.url | rel
