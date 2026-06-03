@@ -1,18 +1,22 @@
 ---
 layout: page
-title: "About"
-label: "About"
+title: About Me
+label: About Me
 permalink: /about/
 ---
 
-I'm Srdan Vuković — working in finance, thinking about AI, and writing down what I learn.
+I'm Srdan Vuković — working in finance, thinking about AI, writing down what I learn.
 
-This blog is where I put ideas that are worth more than a tweet but less than a book. Posts on value investing, compounding, AI tools, and the occasional off-topic detour.
+This blog is a forcing function. If I can't explain something clearly in a post, I probably don't understand it well enough.
 
-## What I'm interested in
+## What I care about
 
-Right now: long-term equity investing, how AI is changing knowledge work, and building systems that compound — financially and intellectually.
+Long-term equity investing, how AI is reshaping knowledge work, and building systems that compound — financially and intellectually.
 
-## Where to find me
+## Background
 
-I'm based in France. You can reach me at [srks84@outlook.com](mailto:srks84@outlook.com).
+Based in France. Background in finance. Spending too much time reading annual reports and thinking about compounding.
+
+## Get in touch
+
+[srks84@outlook.com](mailto:srks84@outlook.com)
