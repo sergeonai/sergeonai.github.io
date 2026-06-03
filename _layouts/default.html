@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
   {% feed_meta %}
 </head>
 <body>
@@ -17,7 +19,11 @@
   <div class="site">
     <aside class="sidebar">
       <div class="sidebar-brand">
-        <a href="{{ '/' | relative_url }}">The Compounding Mind</a>
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}"
+               alt="{{ site.title }}"
+               style="width:100%; max-width:170px; height:auto; display:block;">
+        </a>
       </div>
 
       <nav class="sidebar-nav">
@@ -59,8 +65,8 @@
 
   <script>
     document.addEventListener('click', function(e) {
-      const sidebar = document.querySelector('.sidebar');
-      const toggle = document.querySelector('.mobile-toggle');
+      var sidebar = document.querySelector('.sidebar');
+      var toggle = document.querySelector('.mobile-toggle');
       if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
         sidebar.classList.remove('open');
       }
